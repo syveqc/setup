@@ -1,3 +1,6 @@
+# wait until seed is loaded for first install
+sudo snap wait system seed.loaded
+
 # install packages
 sudo snap install code --classic
 sudo snap install obsidian --classic
