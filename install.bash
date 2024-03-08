@@ -1,10 +1,23 @@
 BASEDIR=$(pwd)
 
+# set package manager
+PACMAN_CMD=$(which pacman)
+YUM_CMD=$(which yum)
+
+if [[ ! -z $PACMAN_CMD ]]; then
+	PACKAGE_MANAGER=pacman
+elif [[ ! -z $YUM_CMD ]]; then
+	PACKAGE_MANAGER=yum
+else
+	echo "error no suitable package manager found."
+	exit 1;
+fi
+
 # update
-sudo pacman -Syyu --noconfirm
+sudo $PACKAGE_MANAGER -Syyu --noconfirm
 
 # install general programs (some redundant and usually pre-installed - just to make sure they are there)
-sudo pacman -Syu --needed --noconfirm firefox vim kitty zsh rofi $(pacman -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync
+sudo $PACKAGE_MANAGER -Syu --needed --noconfirm firefox vim kitty zsh rofi $($PACKAGE_MANAGER -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync
 yay install polybar arandr pulseaudio pavucontrol
 
 # snap
