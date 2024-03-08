@@ -1,7 +1,7 @@
 BASEDIR=$(pwd)
 
 # update
-sudo pacman -Syyu
+sudo pacman -Syyu --noconfirm
 
 # install general programs (some redundant and usually pre-installed - just to make sure they are there)
 sudo pacman -Syu --needed --noconfirm firefox vim kitty zsh rofi $(pacman -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync
