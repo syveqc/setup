@@ -52,6 +52,7 @@ snap run code --install-extension vscodevim.vim
 
 # copy dotfiles
 rsync -a $BASEDIR/.config/ ~/.config/
+cp $BASEDIR/.p10k.zsh ~/
 
 # kitty themes
 cd ~/git
