@@ -44,13 +44,15 @@ git clone https://github.com/marlonrichert/zsh-autocomplete ~/.oh-my-zsh/plugins
 # mamba
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 bash Miniforge3-$(uname)-$(uname -m).sh -b
-~/miniforge3/condabin/mamba init bash zsh
 rm Miniforge3-*
 
 # copy dotfiles
 rsync -a $BASEDIR/.config/ ~/.config/
 cp $BASEDIR/.p10k.zsh ~/
 cp $BASEDIR/.zshrc ~/
+
+# mamba init
+~/miniforge3/condabin/mamba init bash zsh
 
 # kitty themes
 cd ~/git
