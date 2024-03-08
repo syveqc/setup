@@ -33,7 +33,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 # mamba
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 bash Miniforge3-$(uname)-$(uname -m).sh -b
-bash ~/miniforge3/condabin/mamba init bash zsh
+~/miniforge3/condabin/mamba init bash zsh
 rm Miniforge-*
 
 
