@@ -32,7 +32,6 @@ cd ~
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-chsh -s $(which zsh)
 
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
@@ -61,6 +60,9 @@ echo "include ./theme.conf" >> ~/.config/kitty/kitty.conf
 
 # snap stuff
 zsh $BASEDIR/install_snap_stuff.zsh
+
+# change shell to zsh
+chsh -s $(which zsh)
 
 # firefox extensions
 mkdir extensions
