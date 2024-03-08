@@ -27,6 +27,11 @@ sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/ins
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
 
+# zsh plugins
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins
+git clone https://github.com/zsh-users/zsh-autocomplete ~/.oh-my-zsh/plugins
+
 # mamba
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
 bash Miniforge3-$(uname)-$(uname -m).sh -b
