@@ -35,15 +35,6 @@ bash Miniforge3-$(uname)-$(uname -m).sh -b
 ~/miniforge3/condabin/mamba init bash zsh
 rm Miniforge-*
 
-
-# firefox extensions
-mkdir extensions
-wget -P extensions https://addons.mozilla.org/firefox/downloads/file/4216633/ublock_origin-latest.xpi
-wget -P extensions https://addons.mozilla.org/firefox/downloads/file/4211087/bitwarden_password_manager-latest.xpi
-firefox extensions/ublock_origin-latest.xpi # needs to be clicked!
-firefox extensions/bitwarden_password_manager-latest.xpi # needs to be clicked!
-rm -rf extensions
-
 # copy dotfiles
 rsync -a $BASEDIR/.config/ ~/.config/
 cp $BASEDIR/.p10k.zsh ~/
@@ -57,4 +48,12 @@ echo "include ./theme.conf" >> ~/.config/kitty/kitty.conf
 
 # snap stuff
 zsh $BASEDIR/install_snap_stuff.zsh
+
+# firefox extensions
+mkdir extensions
+wget -P extensions https://addons.mozilla.org/firefox/downloads/file/4216633/ublock_origin-latest.xpi
+wget -P extensions https://addons.mozilla.org/firefox/downloads/file/4211087/bitwarden_password_manager-latest.xpi
+firefox extensions/ublock_origin-latest.xpi # needs to be clicked!
+firefox extensions/bitwarden_password_manager-latest.xpi # needs to be clicked!
+rm -rf extensions
 
