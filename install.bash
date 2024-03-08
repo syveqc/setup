@@ -4,7 +4,7 @@ BASEDIR=$(pwd)
 sudo pacman -Syyu
 
 # install general programs (some redundant and usually pre-installed - just to make sure they are there)
-sudo pacman -Syu --needed firefox vim kitty zsh rofi $(pacman -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync
+sudo pacman -Syu --needed --noconfirm firefox vim kitty zsh rofi $(pacman -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync
 yay install polybar arandr pulseaudio pavucontrol
 
 # snap
@@ -12,7 +12,7 @@ mkdir ~/git
 cd ~/git
 git clone https://aur.archlinux.org/snapd.git
 cd snapd
-makepkg -si
+makepkg -si --noconfirm
 sudo systemctl enable --now snapd.socket
 sudo ln -s /var/lib/snapd/snap /snap # https://stackoverflow.com/questions/68565756
 cd ~
@@ -21,11 +21,8 @@ sudo snap install code --classic
 sudo snap install obisidian --classic
 sudo snap install teams-for-linux
 
-# change default shell
-chsh -s $(which zsh)
-
 # oh-my-zsh
-sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)"
+sh -c "$(wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O -)" --unattended
 
 # powerlevel10k
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
