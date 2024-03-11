@@ -18,7 +18,7 @@ sudo $PACKAGE_MANAGER -Syyu --noconfirm
 
 # install general programs (some redundant and usually pre-installed - just to make sure they are there)
 sudo $PACKAGE_MANAGER -Syu --needed --noconfirm firefox vim kitty zsh rofi $($PACKAGE_MANAGER -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync
-yay install polybar arandr pulseaudio pavucontrol
+yay -Syu --noconfirm polybar arandr pulseaudio pavucontrol
 
 # snap
 mkdir ~/git
