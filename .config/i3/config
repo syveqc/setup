@@ -419,6 +419,8 @@ exec --no-startup-id sleep 1 && feh --bg-fill /home/tobias/Pictures/wallpapers/_
 
 # disable power saving (for example if using xscreensaver)
 exec --no-startup-id xset -dpms
+# disable screen blanking
+exec --no-startup-id xset s off
 
 # use xautolock to use autosuspend rules for mobile devices
 # https://wiki.archlinux.org/title/Session_lock#xautolock
