@@ -49,6 +49,9 @@ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforg
 bash Miniforge3-$(uname)-$(uname -m).sh -b
 rm Miniforge3-*
 
+# neovim
+bash $BASEDIR/neovim.bash
+
 # copy dotfiles
 rsync -a $BASEDIR/.config/ ~/.config/
 cp $BASEDIR/.p10k.zsh ~/
