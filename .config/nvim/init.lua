@@ -164,6 +164,11 @@ vim.opt.scrolloff = 10
 -- set default shell to be zsh
 vim.o.shell = '/usr/bin/zsh'
 
+-- quit current buffer
+vim.keymap.set('n', '<leader>q', function()
+  vim.cmd 'bd'
+end, { desc = '[Q]uit current buffer' })
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
