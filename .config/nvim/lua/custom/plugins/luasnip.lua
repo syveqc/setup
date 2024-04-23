@@ -44,5 +44,14 @@ return {
         t '}',
       }),
     })
+
+    ls.add_snippets('tex', {
+      s('equation', {
+        t '\\begin{equation*}',
+        t { '', '    ' },
+        i(0),
+        t { '', '\\end{equation*}' },
+      }),
+    })
   end,
 }
