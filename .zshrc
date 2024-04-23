@@ -26,6 +26,11 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
+# set custom accept key
+bindkey '^l' autosuggest-accept
+bindkey '^p' up-line-or-beginning-search
+bindkey '^n' down-line-or-beginning-search
+
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 # HYPHEN_INSENSITIVE="true"
