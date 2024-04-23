@@ -164,11 +164,6 @@ vim.opt.scrolloff = 10
 -- set default shell to be zsh
 vim.o.shell = '/usr/bin/zsh'
 
--- quit current buffer
-vim.keymap.set('n', '<leader>q', function()
-  vim.cmd 'bd'
-end, { desc = '[Q]uit current buffer' })
-
 -- set langmap for easier normal mode experience
 vim.cmd 'set langmap=öäÖÄ;{}[]'
 
