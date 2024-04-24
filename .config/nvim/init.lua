@@ -100,7 +100,7 @@ vim.g.have_nerd_font = false
 --  For more options, you can see `:help option-list`
 
 -- change working directory automatically to dir of file
-vim.opt.autochdir = true
+-- vim.opt.autochdir = true
 
 -- Make line numbers default
 vim.opt.number = true
