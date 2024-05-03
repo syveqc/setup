@@ -37,7 +37,7 @@ return {
         t '\\begin{',
         i(1),
         t '}',
-        t { '', '    ' },
+        t { '', '     ' },
         i(0),
         t { '', '\\end{' },
         rep(1),
@@ -46,9 +46,46 @@ return {
     })
 
     ls.add_snippets('tex', {
+      s('frame', {
+        t '\\begin{frame}',
+        t { '', '     \\frametitle{' },
+        i(1),
+        t '}',
+        t { '', '     ' },
+        i(0),
+        t { '', '\\end{frame}' },
+      }),
+    })
+
+    ls.add_snippets('tex', {
+      s(
+        'frameimg',
+        fmt(
+          [[
+          \begin{{frame}}
+            \frametitle{{{}}}
+            \begin{{minipage}}{{0.58\textwidth}}
+              \vfill
+              {}
+            \end{{minipage}}
+            \begin{{minipage}}{{0.4\textwidth}}
+              \flushright\includegraphics[width=0.95\textwidth]{{img/{}}}
+            \end{{minipage}}
+          \end{{frame}}
+          ]],
+          {
+            i(2),
+            i(3),
+            i(1),
+          }
+        )
+      ),
+    })
+
+    ls.add_snippets('tex', {
       s('equation', {
         t '\\begin{equation*}',
-        t { '', '    ' },
+        t { '', '     ' },
         i(0),
         t { '', '\\end{equation*}' },
       }),
