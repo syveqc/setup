@@ -17,6 +17,13 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+# set custom accept key
+set_accept_keys () {
+    bindkey '^l' autosuggest-accept
+    bindkey '^p' up-line-or-beginning-search
+    bindkey '^n' down-line-or-beginning-search
+}
+
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -25,11 +32,6 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
-
-# set custom accept key
-bindkey '^l' autosuggest-accept
-bindkey '^p' up-line-or-beginning-search
-bindkey '^n' down-line-or-beginning-search
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -82,9 +84,17 @@ bindkey '^n' down-line-or-beginning-search
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
+
+# set jk to enter normal mode in zsh
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+
+# prevent issues with keybinds
+ZVM_INIT_MODE=sourcing
 
 source $ZSH/oh-my-zsh.sh
+
+set_accept_keys
 
 # User configuration
 
