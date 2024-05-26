@@ -625,6 +625,7 @@ require('lazy').setup({
         'texlab',
         'black',
         'isort',
+        'debugpy',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
