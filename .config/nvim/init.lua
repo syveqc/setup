@@ -629,7 +629,13 @@ require('lazy').setup({
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('lspconfig').pyright.setup {}
+      require('lspconfig').pyright.setup {
+        settings = {
+          python = {
+            pythonPath = '/home/tobias/miniforge3/envs/deepracer/bin/python', -- does not work, but setting Pyright change path config or smth like that does
+          },
+        },
+      }
       require('lspconfig').texlab.setup {}
 
       require('mason-lspconfig').setup {
@@ -926,3 +932,6 @@ require('lazy').setup({
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+--
+
+require 'custom.conda'
