@@ -65,4 +65,4 @@ vim.keymap.set('n', '<leader>cc', function()
       sorter = conf.file_sorter(opts),
     })
     :find()
-end)
+end, { desc = '[C]hange [C]onda Environment' })
