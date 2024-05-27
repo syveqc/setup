@@ -14,7 +14,7 @@ local function set_python_path(path)
   vim.env.PATH = vim.env.PATH:gsub(python_path, path .. '/bin')
   local env_name = get_last(path, '/')
   vim.env.CONDA_PROMPT_MODIFIER = '(' .. env_name .. ')'
-  print(string.format('activated %s', env_name))
+  vim.notify(string.format('activated %s', env_name))
 end
 
 local function make_entry_from_conda_string(current_env)
