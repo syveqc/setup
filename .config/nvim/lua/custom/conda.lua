@@ -7,10 +7,11 @@ local function get_last(str, separator)
 end
 
 local function set_python_path(path)
+  local python_path = vim.fn.system({ 'which', 'python' }):gsub('\n', '')
+  python_path = python_path:sub(0, python_path:len() - string.len '/python')
   local cmd = string.format(':PyrightSetPythonPath %s', path .. '/bin/python')
   vim.cmd(cmd)
-  vim.env.PATH = vim.env.PATH:gsub(vim.env.CONDA_PREFIX .. '/%w+/%w+/bin', path .. '/bin')
-  vim.env.PATH = vim.env.PATH:gsub(vim.env.CONDA_PREFIX .. '/bin', path .. '/bin')
+  vim.env.PATH = vim.env.PATH:gsub(python_path, path .. '/bin')
   local env_name = get_last(path, '/')
   vim.env.CONDA_PROMPT_MODIFIER = '(' .. env_name .. ')'
   print(string.format('activated %s', env_name))
