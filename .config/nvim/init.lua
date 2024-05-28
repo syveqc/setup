@@ -394,6 +394,8 @@ require('lazy').setup({
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
+      local action_state = require 'telescope.actions.state'
+      local actions = require 'telescope.actions'
       vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
       vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
       vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
@@ -404,7 +406,26 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
       vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', function()
-        builtin.buffers { sort_mru = true }
+        builtin.buffers {
+          sort_mru = true,
+          attach_mappings = function(prompt_bufnr, map)
+            local delete_buf = function()
+              local selection = action_state.get_selected_entry()
+              vim.api.nvim_buf_delete(selection.bufnr, { force = false })
+              if vim.fn.bufwinnr(selection.bufnr) ~= -1 then
+                return
+              end
+              local current_picker = action_state.get_current_picker(prompt_bufnr)
+              current_picker:delete_selection(function(_)
+                return true
+              end)
+              current_picker:refresh()
+            end
+
+            map('i', '<C-x>', delete_buf)
+            return true
+          end,
+        }
       end, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
