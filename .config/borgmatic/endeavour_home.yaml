@@ -43,9 +43,11 @@ exclude_patterns:
     - '*.pyc'
     - /**/__pycache__
     - /**/.git
-    - /home/tobias/Documents/playground/**/*.zip'
+    - /home/tobias/Documents/playground/**/*.zip
     - /home/**/.cache
     - '*/.vim*.tmp'
+    - /home/tobias/Documents/playground/**/*.mp4
+    - /home/tobias/Documents/playground/**/*.svg
 
 # Passphrase to unlock the encryption key with. Only use on
 # repositories that were initialized with passphrase/repokey/keyfile
