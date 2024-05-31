@@ -48,6 +48,7 @@ exclude_patterns:
     - '*/.vim*.tmp'
     - /home/tobias/Documents/playground/**/*.mp4
     - /home/tobias/Documents/playground/**/*.svg
+    - /**/events.out.tfevents.*
 
 # Passphrase to unlock the encryption key with. Only use on
 # repositories that were initialized with passphrase/repokey/keyfile
