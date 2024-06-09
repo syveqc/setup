@@ -125,6 +125,15 @@ set_accept_keys
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# custom colors for p10k
+typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=001
+typeset -g POWERLEVEL9K_DIR_FOREGROUND=008
+typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=004
+typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=014
+typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=000
+typeset -g POWERLEVEL9K_TIME_FOREGROUND=008
+# git branch not set-able in this manner, set 'clean', 'modified', 'untracked' and 'conflicted' variables in .p10k.zsh (line 378 in current config)
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/tobias/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
