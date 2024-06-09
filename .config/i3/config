@@ -383,6 +383,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id teams-for-linux
 exec --no-startup-id signal-desktop
 exec --no-startup-id teams-for-linux
+exec --no-startup-id i3-msg 'workspace 3:code; exec kitty nvim'
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
@@ -411,7 +412,7 @@ exec --no-startup-id ~/.screenlayout/monitor.sh
 
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
-exec --no-startup-id sleep 1 && feh --bg-fill /home/tobias/Pictures/wallpapers/_DSC01073_1920x1080.jpg
+exec --no-startup-id sleep 1 && feh --bg-fill /home/tobias/Pictures/wallpapers/leafy-moon.png
 
 # set powersavings for display:
 # exec --no-startup-id xset s 480 dpms 600 600 600
