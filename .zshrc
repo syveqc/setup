@@ -132,6 +132,7 @@ typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=004
 typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=014
 typeset -g POWERLEVEL9K_ANACONDA_FOREGROUND=000
 typeset -g POWERLEVEL9K_TIME_FOREGROUND=008
+typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=011
 # git branch not set-able in this manner, set 'clean', 'modified', 'untracked' and 'conflicted' variables in .p10k.zsh (line 378 in current config)
 
 # >>> conda initialize >>>
