@@ -10,6 +10,8 @@ return {
     down_and_jump = '<C-n>',
   },
   opts = {
-    -- Your setup opts here
+    outline_window = {
+      position = 'left',
+    },
   },
 }
