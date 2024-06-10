@@ -84,7 +84,7 @@ set_accept_keys () {
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode z)
 
 # set jk to enter normal mode in zsh
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
