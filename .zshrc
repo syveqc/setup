@@ -154,3 +154,5 @@ if [ -f "/home/tobias/miniforge3/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
+# Aliases
+alias lg='lazygit'
