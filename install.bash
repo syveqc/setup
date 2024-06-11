@@ -65,7 +65,6 @@ cp $BASEDIR/.zshrc ~/
 cd ~/git
 git clone https://github.com/dexpota/kitty-themes
 ln -s ~/git/kitty-themes/themes/MaterialDark.conf ~/.config/kitty/theme.conf
-echo "include ./theme.conf" >> ~/.config/kitty/kitty.conf
 
 # snap stuff
 zsh $BASEDIR/install_snap_stuff.zsh
