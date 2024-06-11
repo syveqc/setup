@@ -383,7 +383,7 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id teams-for-linux
 exec --no-startup-id signal-desktop
 exec --no-startup-id teams-for-linux
-exec --no-startup-id i3-msg 'workspace 3:code; exec kitty nvim'
+# exec --no-startup-id i3-msg 'workspace 3:code; exec kitty nvim'
 
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 # when second to i3 a DE is installed or mixed usage of i3 + xfce4 or GNOME
