@@ -58,6 +58,10 @@ rsync -a $BASEDIR/.config/ ~/.config/
 cp $BASEDIR/.p10k.zsh ~/
 cp $BASEDIR/.zshrc ~/
 
+# get wallpaper
+mkdir -p ~/Pictures/wallpapers
+wget -O ~/Pictures/wallpapers/leafy-moon.png 'https://github.com/rose-pine/wallpapers/blob/c158dda0f482b063c98cbf3a3d178d4170abecc4/leafy-moon.png?raw=true'
+
 # mamba init
 ~/miniforge3/condabin/mamba init bash zsh
 
