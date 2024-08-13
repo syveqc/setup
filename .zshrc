@@ -157,3 +157,5 @@ fi
 # Aliases
 alias lg='lazygit'
 alias c='clear'
+alias ranger=". ranger"
+
