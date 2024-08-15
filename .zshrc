@@ -159,3 +159,23 @@ alias lg='lazygit'
 alias c='clear'
 alias ranger=". ranger"
 
+# bitwarden password copy
+bwcp () {
+    local copy_cmd
+    copy_cmd=''
+    if command -v xclip &> /dev/null
+    then
+        copy_cmd='xclip -se c 1> /dev/null 2> /dev/null'
+    fi
+
+    if [ $copy_cmd ]
+    then
+        bw get password $1 | eval $copy_cmd
+    else
+        echo 'No supported copy command found!'
+    fi
+}
+
+bwcpfh () {
+    bwcp portal.fhstp
+}
