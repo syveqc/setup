@@ -179,3 +179,6 @@ bwcp () {
 bwcpfh () {
     bwcp portal.fhstp
 }
+
+# set vim as default editor
+export EDITOR=nvim
