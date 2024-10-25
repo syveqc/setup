@@ -184,7 +184,7 @@ bindsym $mod+e exec --no-startup-id nemo
 # lock with a picture:
 #bindsym $mod+l exec --no-startup-id i3lock -i  ~/.config/i3/i3-lock-screen.png -p default|win -t
 # lock by blurring the screen:
-bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/blur-lock
+# bindsym $mod+p exec --no-startup-id ~/.config/i3/scripts/blur-lock
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -294,7 +294,7 @@ bindsym Print exec --no-startup-id flameshot gui
 #bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/scripts/power-profiles
 
 # shutdown
-bindsym $mod+Shift+p exec --no-startup-id systemctl poweroff
+# bindsym $mod+Shift+p exec --no-startup-id systemctl poweroff
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -583,6 +583,20 @@ strip_workspace_numbers yes
 #		urgent_workspace	$urgentred	$urgentred	$white		$purple
 #	}
 #}
+
+##################
+# Poweroff modes #
+##################
+
+set $mode_power [l]ock | [e]logoff | [s]hutdown
+mode "$mode_power" {
+	bindsym l exec --no-startup-id ~/.config/i3/scripts/blur-lock; mode "default"
+        bindsym e exec i3-msg exit
+        bindsym s exec systemctl poweroff
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode "$mode_power"
 
 #####################################
 # Application menu handled by rofi: #
