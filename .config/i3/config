@@ -588,11 +588,12 @@ strip_workspace_numbers yes
 # Poweroff modes #
 ##################
 
-set $mode_power [l]ock | [e]logoff | [s]hutdown
+set $mode_power [l]ock | [e]logoff | [s]hutdown | [r]eboot
 mode "$mode_power" {
 	bindsym l exec --no-startup-id ~/.config/i3/scripts/blur-lock; mode "default"
         bindsym e exec i3-msg exit
         bindsym s exec systemctl poweroff
+        bindsym r exec systemctl reboot
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
