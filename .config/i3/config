@@ -631,3 +631,7 @@ bindsym $mod+t exec --no-startup-id rofi -show window \
 ## Wacom
 exec --no-startup-id xsetwacom set 10 MapToOutput HEAD-1
 exec --no-startup-id xsetwacom set 17 MapToOutput HEAD-1
+
+## set firefox as default browser (chromium sets itself default when installed)
+## see also: https://unix.stackexchange.com/questions/307641/cant-change-the-xdg-open-url-handler-to-firefox
+exec --no-startup-id xdg-mime default firefox.desktop x-scheme-handler/https x-scheme-handler/http
