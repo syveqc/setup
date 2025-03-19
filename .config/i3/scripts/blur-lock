@@ -7,5 +7,5 @@ BLUR="10x10"
 
 $SCREENSHOT
 convert $PICTURE -blur $BLUR $PICTURE
-i3lock -f -i -n $PICTURE
+i3lock -f -n -i $PICTURE
 rm $PICTURE
