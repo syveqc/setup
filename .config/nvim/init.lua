@@ -681,14 +681,8 @@ require('lazy').setup({
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
-      require('lspconfig').pyright.setup {
-        settings = {
-          python = {
-            pythonPath = '/home/tobias/miniforge3/envs/deepracer/bin/python', -- does not work, but setting Pyright change path config or smth like that does
-          },
-        },
-      }
-      require('lspconfig').texlab.setup {}
+      vim.lsp.enable 'pyright'
+      vim.lsp.enable 'texlab'
 
       require('mason-lspconfig').setup {
         handlers = {
