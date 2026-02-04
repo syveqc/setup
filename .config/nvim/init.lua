@@ -677,6 +677,7 @@ require('lazy').setup({
         'black',
         'isort',
         'debugpy',
+        'tinymist',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
