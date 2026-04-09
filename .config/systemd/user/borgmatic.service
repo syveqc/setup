@@ -5,4 +5,4 @@ After=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/borgmatic create
+ExecStart=/home/tobias/miniforge3/bin/borgmatic create
