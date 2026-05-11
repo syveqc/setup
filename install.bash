@@ -1,5 +1,10 @@
 BASEDIR=$(pwd)
 
+# sudoloop
+sudo -v  # prompt once, cache credentials
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
+SUDO_KEEPALIVE_PID=$!
+trap 'kill $SUDO_KEEPALIVE_PID' EXIT
 
 # update
 sudo pacman -Syyu --noconfirm
@@ -12,10 +17,20 @@ makepkg -si
 
 # install base programs
 cd $BASEDIR
-yay -Syu --noconfirm --sudoloop spotify nextcloud-client sioyek nvidia-dkms nvidia-utils egl-wayland nvidia-settings libwacom xf86-input-wacom xournalpp biber borgmatic grimshot lazygit ranger bitwarden bitwarden-cli xautolock autorandr firefox vim kitty zsh signal-desktop telegram-desktop nemo rsync docker qt5-wayland qt6-wayland
+REPO_PKGS=(
+  nextcloud-client nvidia-open-dkms nvidia-utils egl-wayland nvidia-settings
+  libwacom xf86-input-wacom xournalpp biber borgmatic lazygit ranger
+  bitwarden bitwarden-cli autorandr firefox vim kitty zsh signal-desktop
+  telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
+  grim slurp wl-clipboard hypridle spotify-launcher
+)
 
-# install wayland
-yay -Syu --noconfirm --sudoloop hyprland 
+AUR_PKGS=(
+  sioyek
+)
+
+sudo pacman -Syu --noconfirm --needed "${REPO_PKGS[@]}"
+yay -S --noconfirm "${AUR_PKGS[@]}"
 
 # docker
 sudo systemctl enable docker.socket
