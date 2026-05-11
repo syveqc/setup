@@ -22,7 +22,7 @@ REPO_PKGS=(
   libwacom xf86-input-wacom xournalpp biber borgmatic lazygit ranger
   bitwarden bitwarden-cli autorandr firefox vim kitty zsh signal-desktop
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
-  grim slurp wl-clipboard hypridle spotify-launcher
+  grim slurp wl-clipboard hypridle spotify-launcher qt5-3d
 )
 
 AUR_PKGS=(
