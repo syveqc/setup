@@ -5,7 +5,7 @@ BASEDIR=$(pwd)
 sudo pacman -Syyu --noconfirm
 
 # install yay
-sudo pacman -Syu --needed --noconfirm --sudoloop git base-devel fakeroot debugedit
+sudo pacman -Syu --needed --noconfirm git base-devel fakeroot debugedit
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
