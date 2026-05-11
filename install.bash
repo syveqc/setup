@@ -12,7 +12,10 @@ makepkg -si
 
 # install base programs
 cd $BASEDIR
-yay -Syu --noconfirm hyprland spotify nextcloud-client sioyek nvidia-dkms nvidia-utils egl-wayland nvidia-settings libwacom xf86-input-wacom xournalpp biber borgmatic grimshot lazygit ranger bitwarden bitwarden-cli xautolock autorandr firefox vim kitty zsh signal-desktop telegram-desktop nemo rsync docker
+yay -Syu --noconfirm --sudoloop spotify nextcloud-client sioyek nvidia-dkms nvidia-utils egl-wayland nvidia-settings libwacom xf86-input-wacom xournalpp biber borgmatic grimshot lazygit ranger bitwarden bitwarden-cli xautolock autorandr firefox vim kitty zsh signal-desktop telegram-desktop nemo rsync docker qt5-wayland qt6-wayland
+
+# install wayland
+yay -Syu --noconfirm --sudoloop hyprland 
 
 # docker
 sudo systemctl enable docker.socket
