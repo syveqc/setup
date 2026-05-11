@@ -1,37 +1,21 @@
 BASEDIR=$(pwd)
 
-# set package manager
-PACMAN_CMD=$(which pacman)
-YUM_CMD=$(which yum)
-
-if [[ ! -z $PACMAN_CMD ]]; then
-	PACKAGE_MANAGER=pacman
-elif [[ ! -z $YUM_CMD ]]; then
-	PACKAGE_MANAGER=yum
-else
-	echo "error no suitable package manager found."
-	exit 1;
-fi
 
 # update
-sudo $PACKAGE_MANAGER -Syyu --noconfirm
+sudo pacman -Syyu --noconfirm
 
-# install general programs (some redundant and usually pre-installed - just to make sure they are there)
-sudo $PACKAGE_MANAGER -Syu --needed --noconfirm firefox vim kitty zsh rofi $($PACKAGE_MANAGER -Ssq texlive-*) signal-desktop telegram-desktop base-devel nemo rsync docker
-yay -Syu --noconfirm polybar arandr pulseaudio pavucontrol spotify nextcloud-client go-task pre-commit sioyek nvidia-settings libwacom xf86-input-wacom xournalpp biber xclip borgmatic python-llfuse flameshot lazygit ranger bitwarden bitwarden-cli xautolock autorandr
+# install yay
+sudo pacman -Syu --needed --noconfirm --sudoloop git base-devel
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+makepkg -si
+
+# install base programs
+cd $BASEDIR
+yay -Syu --noconfirm hyprland spotify nextcloud-client sioyek nvidia-dkms nvidia-utils egl-wayland nvidia-settings libwacom xf86-input-wacom xournalpp biber borgmatic grimshot lazygit ranger bitwarden bitwarden-cli xautolock autorandr firefox vim kitty zsh signal-desktop telegram-desktop nemo rsync docker
 
 # docker
 sudo systemctl enable docker.socket
-
-# snap
-mkdir ~/git
-cd ~/git
-git clone https://aur.archlinux.org/snapd.git
-cd snapd
-makepkg -si --noconfirm
-sudo systemctl enable --now snapd.socket
-sudo ln -s /var/lib/snapd/snap /snap # https://stackoverflow.com/questions/68565756
-cd ~
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -50,6 +34,9 @@ wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforg
 bash Miniforge3-$(uname)-$(uname -m).sh -b
 rm Miniforge3-*
 
+# mamba init
+~/miniforge3/condabin/mamba init bash zsh
+
 # neovim
 bash $BASEDIR/neovim.bash
 
@@ -62,16 +49,10 @@ cp $BASEDIR/.zshrc ~/
 mkdir -p ~/Pictures/wallpapers
 wget -O ~/Pictures/wallpapers/leafy-moon.png 'https://github.com/rose-pine/wallpapers/blob/c158dda0f482b063c98cbf3a3d178d4170abecc4/leafy-moon.png?raw=true'
 
-# mamba init
-~/miniforge3/condabin/mamba init bash zsh
-
 # kitty themes
 cd ~/git
 git clone https://github.com/dexpota/kitty-themes
 ln -s ~/git/kitty-themes/themes/MaterialDark.conf ~/.config/kitty/theme.conf
-
-# snap stuff
-zsh $BASEDIR/install_snap_stuff.zsh
 
 # change shell to zsh
 chsh -s $(which zsh)
