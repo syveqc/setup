@@ -22,15 +22,15 @@ REPO_PKGS=(
   libwacom xf86-input-wacom xournalpp biber borgmatic lazygit ranger
   bitwarden bitwarden-cli autorandr firefox vim kitty zsh signal-desktop
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
-  grim slurp wl-clipboard hypridle spotify-launcher qt5-3d
+  grim slurp wl-clipboard hypridle spotify-launcher qt5-3d sioyek-appimage
 )
 
-AUR_PKGS=(
-  sioyek
-)
+# no AUR packages so far
+# AUR_PKGS=(
+# )
 
 sudo pacman -Syu --noconfirm --needed "${REPO_PKGS[@]}"
-yay -S --noconfirm "${AUR_PKGS[@]}"
+# yay -S --noconfirm "${AUR_PKGS[@]}"
 
 # docker
 sudo systemctl enable docker.socket
