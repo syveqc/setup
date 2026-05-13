@@ -13,6 +13,7 @@ sudo pacman -Syyu --noconfirm
 sudo pacman -Syu --needed --noconfirm git base-devel fakeroot debugedit
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
+sudo true
 makepkg -si --noconfirm
 
 # install base programs
