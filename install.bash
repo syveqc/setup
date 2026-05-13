@@ -21,7 +21,7 @@ cd $BASEDIR
 REPO_PKGS=(
   nextcloud-client nvidia-open-dkms nvidia-utils egl-wayland nvidia-settings
   libwacom xf86-input-wacom xournalpp biber borgmatic lazygit ranger
-  bitwarden bitwarden-cli autorandr firefox vim kitty zsh signal-desktop
+  bitwarden bitwarden-cli autorandr firefox vim wezterm zsh signal-desktop
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
   grim slurp wl-clipboard hypridle spotify-launcher wget curl
   starship zoxide greetd greetd-tuigreet
@@ -55,11 +55,6 @@ cp $BASEDIR/.zshrc ~/
 # get wallpaper
 mkdir -p ~/Pictures/wallpapers
 wget -O ~/Pictures/wallpapers/leafy-moon.png 'https://github.com/rose-pine/wallpapers/blob/c158dda0f482b063c98cbf3a3d178d4170abecc4/leafy-moon.png?raw=true'
-
-# kitty themes
-cd ~/git
-git clone https://github.com/dexpota/kitty-themes
-ln -s ~/git/kitty-themes/themes/MaterialDark.conf ~/.config/kitty/theme.conf
 
 # greetd config
 sudo cp $BASEDIR/.config/greetd/config.toml /etc/greetd/config.toml
