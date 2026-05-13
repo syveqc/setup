@@ -66,5 +66,5 @@ sudo cp $BASEDIR/.config/greetd/config.toml /etc/greetd/config.toml
 sudo systemctl enable greetd
 
 # change shell to zsh
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
