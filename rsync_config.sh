@@ -6,4 +6,3 @@ rsync -uav .config/i3 ~/.config
 rsync -uav .config/kitty ~/.config
 
 rsync -uv .zshrc ~
-rsync -uv .p10k.zsh ~

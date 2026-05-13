@@ -23,6 +23,7 @@ REPO_PKGS=(
   bitwarden bitwarden-cli autorandr firefox vim kitty zsh signal-desktop
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
   grim slurp wl-clipboard hypridle spotify-launcher wget curl
+  starship zoxide greetd greetd-tuigreet
 )
 
 AUR_PKGS=(
@@ -34,18 +35,6 @@ yay -S --noconfirm "${AUR_PKGS[@]}"
 
 # docker - not needed?
 # sudo systemctl enable docker.socket
-
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
-# powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-
-# zsh plugins
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.oh-my-zsh/plugins/zsh-syntax-highlighting
-git clone https://github.com/marlonrichert/zsh-autocomplete ~/.oh-my-zsh/plugins/zsh-autocomplete
-git clone https://github.com/jeffreytse/zsh-vi-mode ~/.oh-my-zsh/plugins/zsh-vi-mode
 
 # mamba
 wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
@@ -60,7 +49,6 @@ bash $BASEDIR/neovim.bash
 
 # copy dotfiles
 rsync -a $BASEDIR/.config/ ~/.config/
-cp $BASEDIR/.p10k.zsh ~/
 cp $BASEDIR/.zshrc ~/
 
 # get wallpaper
@@ -71,6 +59,10 @@ wget -O ~/Pictures/wallpapers/leafy-moon.png 'https://github.com/rose-pine/wallp
 cd ~/git
 git clone https://github.com/dexpota/kitty-themes
 ln -s ~/git/kitty-themes/themes/MaterialDark.conf ~/.config/kitty/theme.conf
+
+# greetd config
+sudo cp $BASEDIR/.config/greetd/config.toml /etc/greetd/config.toml
+sudo systemctl enable greetd
 
 # change shell to zsh
 chsh -s $(which zsh)
