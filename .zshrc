@@ -27,14 +27,15 @@ SAVEHIST=10000
 setopt appendhistory sharehistory hist_ignore_dups hist_ignore_all_dups hist_ignore_space hist_save_no_dups
 
 # --- keybindings (via zvm hook so vi-mode doesn't clobber them) ---
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
 zvm_after_init() {
+    autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+    zle -N up-line-or-beginning-search
+    zle -N down-line-or-beginning-search
     bindkey '^l' autosuggest-accept
     bindkey '^p' up-line-or-beginning-search
     bindkey '^n' down-line-or-beginning-search
+    bindkey -M vicmd '^p' up-line-or-beginning-search
+    bindkey -M vicmd '^n' down-line-or-beginning-search
 }
 
 # --- zoxide (z replacement) ---
