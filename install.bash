@@ -24,7 +24,7 @@ REPO_PKGS=(
   bitwarden bitwarden-cli autorandr firefox vim wezterm zsh signal-desktop
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
   grim slurp wl-clipboard hypridle spotify-launcher wget curl
-  starship zoxide greetd greetd-tuigreet
+  starship zoxide greetd greetd-tuigreet mako fuzzel ttf-firacode-nerd
 )
 
 AUR_PKGS=(
