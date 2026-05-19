@@ -25,7 +25,7 @@ REPO_PKGS=(
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
   grim slurp wl-clipboard hypridle spotify-launcher wget curl
   starship zoxide greetd greetd-tuigreet mako fuzzel ttf-firacode-nerd
-  hyprpaper waybar npm stylua
+  hyprpaper waybar npm stylua unzip
 )
 
 AUR_PKGS=(
