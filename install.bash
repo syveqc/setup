@@ -26,6 +26,8 @@ REPO_PKGS=(
   grim slurp wl-clipboard hypridle spotify-launcher wget curl
   starship zoxide greetd greetd-tuigreet mako fuzzel ttf-firacode-nerd
   hyprpaper waybar npm stylua unzip
+  texlive-basic texlive-latex texlive-latexrecommended texlive-mathscience
+  texlive-bibtexextra texlive-fontsrecommended texlive-latexextra typst
 )
 
 AUR_PKGS=(
