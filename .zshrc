@@ -46,18 +46,10 @@ eval "$(starship init zsh)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/tobias/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/tobias/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/tobias/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/tobias/miniforge3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
+# Source profile.d scripts directly instead of running `conda shell.zsh hook`,
+# which spawns python and imports ~600 modules (~300ms). Sourcing is ~6ms
+# and provides the same `conda`/`conda activate` shell functions.
+. "/home/tobias/miniforge3/etc/profile.d/conda.sh"
 if [ -f "/home/tobias/miniforge3/etc/profile.d/mamba.sh" ]; then
     . "/home/tobias/miniforge3/etc/profile.d/mamba.sh"
 fi
@@ -95,3 +87,52 @@ bwcpfh () {
 
 export EDITOR=nvim
 export PATH="$HOME/.local/bin:$PATH"
+
+# >>> mamba initialize >>>
+export MAMBA_EXE='/home/tobias/miniforge3/bin/mamba'
+export MAMBA_ROOT_PREFIX='/home/tobias/miniforge3'
+
+__mamba_exe() (
+    "$MAMBA_EXE" "${@}"
+)
+
+__mamba_hashr() {
+    if [ -n "${ZSH_VERSION:+x}" ]; then
+        \rehash
+    else
+        \hash -r
+    fi
+}
+
+__mamba_xctivate() {
+    local ask_mamba
+    ask_mamba="$(PS1="${PS1:-}" __mamba_exe shell "${@}" --shell bash)" || return
+    eval "${ask_mamba}"
+    __mamba_hashr
+}
+
+mamba() {
+    local cmd="${1-__missing__}"
+    case "${cmd}" in
+        activate|reactivate|deactivate)
+            __mamba_xctivate "${@}"
+            ;;
+        install|update|upgrade|remove|uninstall)
+            __mamba_exe "${@}" || return
+            __mamba_xctivate reactivate
+            ;;
+        *)
+            __mamba_exe "${@}"
+            ;;
+    esac
+}
+
+if [ -z "${CONDA_SHLVL+x}" ]; then
+    export CONDA_SHLVL=0
+    export PATH="${MAMBA_ROOT_PREFIX}/condabin:${PATH}"
+    [ -z "${PS1+x}" ] && PS1=
+fi
+mamba activate base
+# <<< mamba initialize <
+
+zvm_after_init
