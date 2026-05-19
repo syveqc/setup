@@ -1,0 +1,228 @@
+/* ┌──────────────────────────────────────────┐
+   │  Rosé Pine Moon — Waybar                 │
+   │  palette: rosepinetheme.com/palette/moon  │
+   └──────────────────────────────────────────┘ */
+
+@define-color base      #232136;
+@define-color surface   #2a273f;
+@define-color overlay   #393552;
+@define-color muted     #6e6a86;
+@define-color subtle    #908caa;
+@define-color text      #e0def4;
+@define-color love      #eb6f92;
+@define-color gold      #f6c177;
+@define-color rose      #ea9a97;
+@define-color pine      #3e8fb0;
+@define-color foam      #9ccfd8;
+@define-color iris      #c4a7e7;
+
+/* ── bar ───────────────────────────────────── */
+
+* {
+  font-family: "FiraCode Nerd Font", monospace;
+  font-size: 11px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+window#waybar > box {
+  background: alpha(@base, 0.85);
+  border: 1px solid alpha(@overlay, 0.6);
+  border-radius: 10px;
+  padding: 0 4px;
+}
+
+tooltip {
+  background: @surface;
+  border: 1px solid @overlay;
+  border-radius: 6px;
+  color: @text;
+}
+
+tooltip label {
+  color: @text;
+  padding: 4px;
+}
+
+/* ── shared module styling ─────────────────── */
+
+#workspaces,
+#window,
+#clock,
+#tray,
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
+#network,
+#backlight,
+#battery,
+#custom-power {
+  padding: 0 14px;
+  color: @text;
+}
+
+/* ── workspaces ────────────────────────────── */
+
+#workspaces {
+  padding: 0 6px;
+}
+
+#workspaces button {
+  padding: 1px 4px;
+  margin: 2px 2px;
+  border-radius: 6px;
+  color: @muted;
+  background: transparent;
+  border: none;
+  transition: all 200ms ease;
+}
+
+#workspaces button:hover {
+  background: alpha(@overlay, 0.5);
+  color: @text;
+}
+
+#workspaces button.active {
+  color: @iris;
+  background: alpha(@iris, 0.15);
+}
+
+#workspaces button.empty {
+  color: alpha(@muted, 0.4);
+}
+
+/* ── window title ──────────────────────────── */
+
+#window {
+  color: @subtle;
+  font-style: italic;
+}
+
+/* ── clock ─────────────────────────────────── */
+
+#clock {
+  color: @iris;
+  font-weight: bold;
+}
+
+/* ── tray ──────────────────────────────────── */
+
+#tray {
+  padding: 0 10px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ── system monitors ──────────────────────── */
+
+#cpu {
+  color: @rose;
+}
+
+#memory {
+  color: @iris;
+}
+
+#disk {
+  color: @gold;
+}
+
+/* ── audio ─────────────────────────────────── */
+
+#pulseaudio {
+  color: @foam;
+}
+
+#pulseaudio.muted {
+  color: @muted;
+}
+
+/* ── network ───────────────────────────────── */
+
+#network {
+  color: @pine;
+}
+
+#network.disconnected {
+  color: @muted;
+}
+
+/* ── backlight ─────────────────────────────── */
+
+#backlight {
+  color: @gold;
+}
+
+/* ── battery ───────────────────────────────── */
+
+#battery {
+  color: @foam;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @pine;
+}
+
+#battery.good {
+  color: @foam;
+}
+
+#battery.medium {
+  color: @gold;
+}
+
+#battery.low {
+  color: @rose;
+}
+
+#battery.critical {
+  color: @love;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  to {
+    color: @text;
+  }
+}
+
+/* ── power button ──────────────────────────── */
+
+#custom-power {
+  color: @love;
+  padding: 0 12px 0 10px;
+  font-size: 13px;
+}
+
+#custom-power:hover {
+  color: @rose;
+}
+
+/* ── pill separators via margins ───────────── */
+
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
+#network,
+#backlight,
+#battery {
+  margin: 3px 0;
+  padding: 0 8px;
+  border-right: 1px solid alpha(@overlay, 0.5);
+}
+
+#battery {
+  border-right: none;
+}

@@ -1,0 +1,141 @@
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 24,
+  "spacing": 0,
+  "margin-top": 0,
+  "margin-bottom": 1,
+  "margin-left": 1,
+  "margin-right": 1,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+
+  "modules-center": [
+    "clock"
+  ],
+
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "disk",
+    "pulseaudio",
+    "network",
+    "backlight",
+    "battery"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰮯",
+      "default": "󰊠",
+      "empty": "󰑊"
+    },
+    "persistent-workspaces": {
+      "*": 5
+    },
+    "on-click": "activate"
+  },
+
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 40,
+    "rewrite": {
+      "(.*) — Mozilla Firefox": "󰈹  $1",
+      "(.*) - Visual Studio Code": "󰨞  $1",
+      "(.*)": "$1"
+    },
+    "separate-outputs": true
+  },
+
+  "clock": {
+    "format": "󰥔  {:%H:%M}",
+    "format-alt": "󰃭  {:%A, %B %d}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#c4a7e7'><b>{}</b></span>",
+        "days": "<span color='#e0def4'>{}</span>",
+        "weeks": "<span color='#6e6a86'>W{}</span>",
+        "weekdays": "<span color='#f6c177'><b>{}</b></span>",
+        "today": "<span color='#eb6f92'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+
+  "cpu": {
+    "format": "󰍛  {usage}%",
+    "interval": 5,
+    "tooltip-format": "{avg_frequency} GHz\n{load} load"
+  },
+
+  "memory": {
+    "format": "󰘚  {percentage}%",
+    "interval": 5,
+    "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+  },
+
+  "disk": {
+    "format": "󰋊  {percentage_used}%",
+    "interval": 60,
+    "path": "/",
+    "tooltip-format": "{used} / {total} ({percentage_free}% free)"
+  },
+
+  "tray": {
+    "icon-size": 15,
+    "spacing": 8
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰝟  mute",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+    "tooltip": true
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {signalStrength}%",
+    "format-ethernet": "󰈀  {ipaddr}",
+    "format-disconnected": "󰤭  off",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}",
+    "max-length": 20
+  },
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+
+  "battery": {
+    "states": {
+      "full": 100,
+      "good": 80,
+      "medium": 50,
+      "low": 20,
+      "critical": 10
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "󰚥  {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "tooltip-format": "{timeTo}\n{power} W"
+  }
+
+}
