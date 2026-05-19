@@ -21,14 +21,15 @@ cd $BASEDIR
 REPO_PKGS=(
   nextcloud-client nvidia-open-dkms nvidia-utils egl-wayland nvidia-settings
   libwacom xf86-input-wacom xournalpp biber borgmatic lazygit ranger
-  bitwarden bitwarden-cli autorandr firefox vim wezterm zsh signal-desktop
+  bitwarden bitwarden-cli autorandr firefox vim zsh signal-desktop
   telegram-desktop nemo rsync docker qt5-wayland qt6-wayland hyprland
   grim slurp wl-clipboard hypridle spotify-launcher wget curl
   starship zoxide greetd greetd-tuigreet mako fuzzel ttf-firacode-nerd
+  hyprpaper
 )
 
 AUR_PKGS=(
-  sioyek-appimage
+  sioyek-appimage wezterm-git
 )
 
 sudo pacman -Syu --noconfirm --needed "${REPO_PKGS[@]}"
