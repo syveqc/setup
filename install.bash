@@ -31,7 +31,7 @@ REPO_PKGS=(
 )
 
 AUR_PKGS=(
-  sioyek-appimage wezterm-git
+  sioyek-appimage wezterm-git pcloud-drive
 )
 
 sudo pacman -Syu --noconfirm --needed "${REPO_PKGS[@]}"
