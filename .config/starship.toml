@@ -1,0 +1,133 @@
+# Starship config — p10k lean style, rose-pine moon palette
+# 2-line, dotted fill, sparse, nerdfont, concise, 24h time
+#
+# Rosé Pine Moon palette:
+#   base=#232136  surface=#2a273f  overlay=#393552
+#   muted=#6e6a86  subtle=#908caa  text=#e0def4
+#   love=#eb6f92  gold=#f6c177  rose=#ea9a97
+#   pine=#3e8fb0  foam=#9ccfd8  iris=#c4a7e7
+#   hl_low=#2a283e  hl_med=#44415a  hl_high=#56526e
+
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$cmd_duration\
+$jobs\
+$direnv\
+$conda\
+$python\
+$nodejs\
+$golang\
+$rust\
+$php\
+$lua\
+$username\
+$hostname\
+$time\
+$line_break\
+$character"""
+
+[fill]
+symbol = "·"
+style = "fg:#56526e"
+
+[character]
+success_symbol = "[❯](#3e8fb0)"
+error_symbol = "[❯](#eb6f92)"
+vimcmd_symbol = "[❮](#3e8fb0)"
+vimcmd_replace_one_symbol = "[▶](#ea9a97)"
+vimcmd_replace_symbol = "[▶](#ea9a97)"
+vimcmd_visual_symbol = "[V](#c4a7e7)"
+
+[directory]
+style = "bold #ea9a97"
+format = "[$path]($style)[$read_only]($read_only_style) "
+read_only = " 󰌾"
+read_only_style = "#6e6a86"
+truncation_length = 5
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+style = "#9ccfd8"
+format = "[$symbol$branch(:$remote_branch)]($style)"
+symbol = ""
+truncation_length = 32
+truncation_symbol = "…"
+
+[git_status]
+format = '( $ahead_behind$stashed$conflicted$staged$modified$untracked)'
+ahead = "[⇡$count](#9ccfd8) "
+behind = "[⇣$count](#9ccfd8) "
+diverged = "[⇣${behind_count}⇡${ahead_count}](#9ccfd8) "
+stashed = "[*$count](#c4a7e7) "
+conflicted = "[~$count](#eb6f92) "
+staged = "[+$count](#f6c177) "
+modified = "[!$count](#f6c177) "
+untracked = "[?$count](#908caa) "
+renamed = ""
+deleted = ""
+
+[cmd_duration]
+min_time = 3_000
+format = " [$duration]($style)"
+style = "#f6c177"
+
+[jobs]
+style = "#3e8fb0"
+number_threshold = 1
+symbol_threshold = 1
+format = " [$symbol$number]($style)"
+
+[time]
+disabled = false
+format = " [$time]($style)"
+style = "#908caa"
+time_format = "%H:%M"
+
+[username]
+show_always = false
+style_user = "#e0def4"
+style_root = "bold #eb6f92"
+format = " [$user]($style)"
+
+[hostname]
+ssh_only = true
+style = "#e0def4"
+format = "[@$hostname]($style)"
+
+[direnv]
+disabled = false
+style = "#f6c177"
+format = " [$loaded]($style)"
+
+[python]
+style = "#3e8fb0"
+format = ' [${symbol}${version}(\($virtualenv\))]($style)'
+
+[conda]
+style = "#3e8fb0"
+format = " [$environment]($style)"
+
+[nodejs]
+style = "#9ccfd8"
+format = " [$symbol$version]($style)"
+
+[golang]
+style = "#9ccfd8"
+format = " [$symbol$version]($style)"
+
+[rust]
+style = "#ea9a97"
+format = " [$symbol$version]($style)"
+
+[php]
+style = "#c4a7e7"
+format = " [$symbol$version]($style)"
+
+[lua]
+style = "#3e8fb0"
+format = " [$symbol$version]($style)"
