@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "bottom",
-  "height": 20,
+  "height": 24,
   "spacing": 0,
   "margin-top": 0,
   "margin-bottom": 3,
@@ -14,7 +14,8 @@
   ],
 
   "modules-center": [
-    "clock"
+    "clock",
+    "hyprland/submap"
   ],
 
   "modules-right": [
@@ -27,6 +28,12 @@
     "backlight",
     "battery"
   ],
+
+  "hyprland/submap": {
+    "format": "󰌌  {}",
+    "tooltip": true,
+    "tooltip-format": "[l]ock  [e]xit  [s]hutdown  [r]eboot  [esc] cancel"
+  },
 
   "hyprland/workspaces": {
     "format": "{icon}",

@@ -20,7 +20,7 @@
 
 * {
   font-family: "FiraCode Nerd Font", monospace;
-  font-size: 10px;
+  font-size: 14px;
   min-height: 0;
 }
 
@@ -60,6 +60,7 @@ tooltip label {
 #network,
 #backlight,
 #battery,
+#submap,
 #custom-power {
   padding: 0 14px;
   color: @text;
@@ -93,6 +94,17 @@ tooltip label {
 
 #workspaces button.empty {
   color: alpha(@muted, 0.4);
+}
+
+/* ── submap ────────────────────────────────── */
+
+#submap {
+  color: @love;
+  background: alpha(@love, 0.15);
+  border-radius: 4px;
+  padding: 0 10px;
+  margin: 3px 4px;
+  font-weight: bold;
 }
 
 /* ── window title ──────────────────────────── */
